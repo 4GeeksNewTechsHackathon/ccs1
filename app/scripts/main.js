@@ -26,7 +26,7 @@ var ProjectMilestones = Vue.extend({
       })
 
     },
-    loadTasks: function (milestone_i) {
+    setMilestone: function (milestone_i) {
       this.$parent.milestone = this.milestones[milestone_i]
     }
   }
@@ -38,13 +38,6 @@ var MilestoneStories = Vue.extend({
   props: ['milestone'],
   data: {
     stories: []
-  },
-  methods: {
-    fetchData: function () {
-      this.$resource(taigaUrls.milestones).get({id: 107653}).then(function (response) {
-        this.$set('milestones', response.data)
-      })
-    }
   },
   watch: {
     milestone: function (val) {

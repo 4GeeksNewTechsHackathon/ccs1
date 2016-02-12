@@ -28,7 +28,7 @@
 <!-- TEMPLATE MILESTONES -->
 <script type="text/x-template" id="project-milestones-template">
     <ul class="list-group">
-        <li v-for="milestone in milestones" class="list-group-item" v-on:click="loadTasks($index)">
+        <li v-for="milestone in milestones" class="list-group-item" v-on:click="setMilestone($index)">
             <span><b>Sprint</b> {{ milestone.name }}</span><br>
             <span><b>Total Points</b> {{ milestone.total_points }}</span><br>
             <span><b>Closed Points</b> {{ milestone.closed_points }}</span><br>
