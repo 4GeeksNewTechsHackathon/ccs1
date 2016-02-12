@@ -10,29 +10,44 @@ var taigaUrls = {
     user_story_tasks: 'https://api.taiga.io/api/v1/tasks?user_story={id}'
 }
 
-Vue.config.debug = true;
-new Vue({
-    el: '#app',
+var ProjectMilestones = Vue.extend({
+    template: '#project-milestones-template',
     data: {
         projects: [],
         milestones: []
+    },
+    created : function() {
+        this.fetchData()
     },
     methods: {
         fetchData: function () {
             this.$resource(taigaUrls.milestones).get({id: 107653}).then(function (response) {
                 this.$set('milestones', response.data)
             })
-        },
-        fetchData2: function () {
-            for (var i=0; i<this.projects.length; i++) {
-
-            }
         }
-    },
-    created : function() {
-        this.fetchData()
-    },
-    watch : {
-        milestones: 'fetchData2'
     }
-});
+})
+
+Vue.config.debug = true;
+Vue.component('project-milestones', ProjectMilestones)
+new Vue({el: '#app'});
+
+Vue.component('modal', {
+  template: '#menu-template',
+  props: {
+    show: {
+      type: Boolean,
+      required: true,
+      twoWay: true    
+    }
+  }
+})
+
+
+new Vue({
+  el: '#menu',
+  data: {
+    showMenu: false
+  }
+})
+

@@ -13,81 +13,52 @@ $icon-font-path: '../fonts/';
 
 /* Space out content a bit */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
+   margin: 0;
+  display: table;
+  height: 100%;
+  width: 100%;
+  background-color: #41B883;
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
-  }
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-  p + h4 {
-    margin-top: 28px;
-  }
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
+  button#show-menu {
+    z-index: 10;
+    position: absolute;
+    background-color: #fff;
+    border: 0;
+    color: #35495E;
+    font-size: 20px;
+    bottom: 0;
+    width: 100%;
+    button#show-menu:focus {
+      outline: 0;}
   }
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
+  .menu-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    .menu-container {
+      margin: 0px auto;
+      padding: 20px 30px;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+      transition: all .3s ease;
+      font-family: Helvetica, Arial, sans-serif;
+      z-index: 15;
+      position: absolute;
+      width: 100%;
+      bottom: 0;}
+    .menu-body {
+      margin: 20px 0;
+      text-align: center;}
+    .exit {
+      text-align: right;}
+    .title {
+      font-size: 28px;
+      color: #fff;
+      text-align: right;
+      margin-right: 30px;
+      margin-top: 27px;}
   }
 
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
 }
+
+
