@@ -1,37 +1,15 @@
-// demo data
-var data = {
-    name: 'My Tree',
-    children: [
-        { name: 'hello' },
-        { name: 'wat' },
-        {
-            name: 'child folder',
-            children: [
-                {
-                    name: 'child folder',
-                    children: [
-                        { name: 'hello' },
-                        { name: 'wat' }
-                    ]
-                },
-                { name: 'hello' },
-                { name: 'wat' },
-                {
-                    name: 'child folder',
-                    children: [
-                        { name: 'hello' },
-                        { name: 'wat' }
-                    ]
-                }
-            ]
-        }
-    ]
-};
-
-//Vue.use(require('vue-resource'));
 Vue.http.headers.common['Authorization'] = 'Bearer eyJ1c2VyX2F1dGhlbnRpY2F0aW9uX2lkIjozNDA2Mn0:1aTvGC:bzdKugKkTvNisEcJ50lt5BCy7FI';
 
-var taigaProjectUrl = 'https://api.taiga.io/api/v1/milestones?project=107653';
+var taigaUrls = {
+    milestones: 'https://api.taiga.io/api/v1/milestones?project={id}',
+    project: 'https://api.taiga.io/api/v1/projects/{id}',
+    project_userstories:  'https://api.taiga.io/api/v1/userstories?project={id}',
+    project_tasks: 'https://api.taiga.io/api/v1/tasks?project={id}',
+    milestone_userstories:  'https://api.taiga.io/api/v1/userstories?milestone={id}',
+    milestone_tasks: 'https://api.taiga.io/api/v1/tasks?milestone={id}',
+    user_story_tasks: 'https://api.taiga.io/api/v1/tasks?user_story={id}'
+}
+
 Vue.config.debug = true;
 new Vue({
     el: '#app',
@@ -41,7 +19,7 @@ new Vue({
     },
     methods: {
         fetchData: function () {
-            this.$http.get(taigaProjectUrl).then(function(response) {
+            this.$resource(taigaUrls.milestones).get({id: 107653}).then(function (response) {
                 this.$set('milestones', response.data)
             })
         },
@@ -55,6 +33,6 @@ new Vue({
         this.fetchData()
     },
     watch : {
-        projects: 'fetchData2'
+        milestones: 'fetchData2'
     }
 });
