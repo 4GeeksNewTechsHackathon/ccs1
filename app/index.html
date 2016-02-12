@@ -28,21 +28,31 @@
 <!-- TEMPLATE MILESTONES -->
 <script type="text/x-template" id="project-milestones-template">
     <ul class="list-group">
-        <li v-for="milestone in milestones" class="list-group-item">
+        <li v-for="milestone in milestones" class="list-group-item" v-on:click="loadTasks($index)">
             <span><b>Sprint</b> {{ milestone.name }}</span><br>
             <span><b>Total Points</b> {{ milestone.total_points }}</span><br>
             <span><b>Closed Points</b> {{ milestone.closed_points }}</span><br>
             <span><b>Estimated Start</b> {{ milestone.estimated_start }}</span><br>
             <span><b>Estimated Finish</b> {{ milestone.estimated_finish }}</span><br>
-<span><b>Closed</b>
-<span v-if="milestone.closed">Yes</span>
-<span v-else>No</span>
-</span>
+            <span><b>Closed</b>
+            <span v-if="milestone.closed">Yes</span>
+            <span v-else>No</span>
+            </span>
         </li>
     </ul>
 </script>
 
-<script type="x/template" id="menu-template">
+<!-- TEMPLATE HISTORIES -->
+<script type="text/x-template" id="milestone-histories-template">
+    <ul class="list-group">
+        <li v-for="story in stories" class="list-group-item">
+            <span><b>Subject</b> {{ story.subject }}</span>
+        </li>
+    </ul>
+</script>
+
+<!-- TEMPLATE MENU -->
+<script type="text/x-template" id="menu-template">
     <div v-show="show" transition="menu">
         <div class="menu-wrapper">
             <div class="menu-container">
@@ -70,10 +80,16 @@
 </script>
 
 <div class="container" id="app">
+    {{milestone_i}}
     <div class="row marketing">
-        <div class="col-md-4">
-            <div>
-                <project-milestones></project-milestones>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4">
+                    <project-milestones></project-milestones>
+                </div>
+                <div class="col-md-4">
+                    <milestones-histories v-bind:milestone="milestone"></milestones-histories>
+                </div>
             </div>
         </div>
     </div>

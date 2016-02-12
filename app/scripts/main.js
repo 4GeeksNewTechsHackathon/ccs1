@@ -10,14 +10,12 @@ var taigaUrls = {
   user_story_tasks: 'https://api.taiga.io/api/v1/tasks?user_story={id}'
 }
 
-// COMPONENTE PROJECTMILESTONES
+// PROJECT-MILESTONES COMPONENT
 var ProjectMilestones = Vue.extend({
   template: '#project-milestones-template',
   data: {
-    projects: [],
     milestones: []
   },
-  props: ['msg'],
   created : function() {
     this.fetchData()
   },
@@ -26,10 +24,36 @@ var ProjectMilestones = Vue.extend({
       this.$resource(taigaUrls.milestones).get({id: 107653}).then(function (response) {
         this.$set('milestones', response.data)
       })
+
+    },
+    loadTasks: function (milestone_i) {
+      this.$parent.milestone = this.milestones[milestone_i]
     }
   }
 });
 
+// MILESTONE-HISTORIES COMPONENT
+var MilestoneHistories = Vue.extend({
+  template: '#milestone-histories-template',
+  props: ['milestone'],
+  data: {
+    stories: []
+  },
+  methods: {
+    fetchData: function () {
+      this.$resource(taigaUrls.milestones).get({id: 107653}).then(function (response) {
+        this.$set('milestones', response.data)
+      })
+    }
+  },
+  watch: {
+    milestone: function (val) {
+      this.$set('stories', val.user_stories)
+    }
+  }
+});
+
+// MODAL COMPONENT
 var Modal = Vue.extend({
   template: '#menu-template',
   props: {
@@ -43,10 +67,12 @@ var Modal = Vue.extend({
 
 Vue.config.debug = true;
 Vue.component('project-milestones', ProjectMilestones);
+Vue.component('milestones-histories', MilestoneHistories);
 Vue.component('modal', Modal);
 
 new Vue({el: '#app',
   data: {
-    showMenu: false
+    showMenu: false,
+    milestone: null
   }
 });
