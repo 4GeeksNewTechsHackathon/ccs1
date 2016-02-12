@@ -28,7 +28,7 @@
 <!-- TEMPLATE MILESTONES -->
 <script type="text/x-template" id="project-milestones-template">
     <ul class="list-group">
-        <li v-for="milestone in milestones" class="list-group-item lists-sprints">
+        <li v-for="milestone in milestones" class="list-group-item lists-sprints" v-on:click="setMilestone($index)">
             <h3><span><b>Sprint</b> {{ milestone.name }}</span></h3><br>
             <span><b>Total Points</b> {{ milestone.total_points }}</span><br>
             <span><b>Closed Points</b> {{ milestone.closed_points }}</span><br>
@@ -43,7 +43,17 @@
     </ul>
 </script>
 
-<script type="x/template" id="menu-template">
+<!-- TEMPLATE stories -->
+<script type="text/x-template" id="milestone-stories-template">
+    <ul class="list-group">
+        <li v-for="story in stories" class="list-group-item lists-sprints">
+            <span><b>Subject</b> {{ story.subject }}</span>
+        </li>
+    </ul>
+</script>
+
+<!-- TEMPLATE MENU -->
+<script type="text/x-template" id="menu-template">
     <div v-show="show" transition="menu">
         <div class="menu-wrapper">
             <div class="menu-container">
@@ -70,23 +80,26 @@
     </div>
 </script>
 
+
 <div class="container-fluid" id="app">
+    {{milestone_i}}
     <div class="row">
-        <div class="col-md-4">
-            <div class="content">
-                <project-milestones></project-milestones>
+            <div class="col-md-4">
+                <div class="content">
+                    <project-milestones></project-milestones>
+                </div>
             </div>
-        </div>
+            <div class="col-md-4">
+                <div class="content">
+                    <milestones-stories v-bind:milestone="milestone"></milestones-stories>
+                </div>
+            </div>
         <div class="col-md-4">
             <div class="content">
 
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="content">
-                
-            </div>
-        </div>
+
     </div>
     <div id="menu">
         <img src="">
