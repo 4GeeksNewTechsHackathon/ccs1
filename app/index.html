@@ -28,16 +28,17 @@
 <!-- TEMPLATE MILESTONES -->
 <script type="text/x-template" id="project-milestones-template">
     <ul class="list-group">
-        <li v-for="milestone in milestones" class="list-group-item">
-            <span><b>Sprint</b> {{ milestone.name }}</span><br>
+        <li v-for="milestone in milestones" class="list-group-item lists-sprints">
+            <h3><span><b>Sprint</b> {{ milestone.name }}</span></h3><br>
             <span><b>Total Points</b> {{ milestone.total_points }}</span><br>
             <span><b>Closed Points</b> {{ milestone.closed_points }}</span><br>
             <span><b>Estimated Start</b> {{ milestone.estimated_start }}</span><br>
             <span><b>Estimated Finish</b> {{ milestone.estimated_finish }}</span><br>
-<span><b>Closed</b>
-<span v-if="milestone.closed">Yes</span>
-<span v-else>No</span>
-</span>
+            <span><b>Closed</b>
+                <span v-if="milestone.closed">Yes</span>
+                <span v-else>No</span>
+            </span>
+            <hr>
         </li>
     </ul>
 </script>
@@ -50,15 +51,15 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4">
-                                <object data="images/list.svg" type="image/svg+xml"></object>
+                                <img src="images/list.png" @click="show = false" class="size-img"><br>
                                 Sprits
                             </div>
                             <div class="col-md-4">
-                                <object data="images/multiple.svg" type="image/svg+xml"></object>
+                                <img src="images/multiple.png" @click="show = false" class="size-img"><br>
                                 Users
                             </div>
                             <div class="col-md-4">
-                                <object data="images/error.svg" type="image/svg+xml"></object>
+                                <img src="images/error.png" @click="show = false" class="size-img"><br>
                                 Bugs
                             </div>
                         </div>
@@ -69,11 +70,21 @@
     </div>
 </script>
 
-<div class="container" id="app">
-    <div class="row marketing">
+<div class="container-fluid" id="app">
+    <div class="row">
         <div class="col-md-4">
-            <div>
+            <div class="content">
                 <project-milestones></project-milestones>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="content">
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="content">
+                
             </div>
         </div>
     </div>

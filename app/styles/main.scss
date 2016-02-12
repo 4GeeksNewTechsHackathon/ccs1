@@ -18,10 +18,13 @@ body {
   height: 100%;
   width: 100%;
   background-color: #41B883;
+  
+  div#app {
+    padding-left: 0;}
 
   button#show-menu {
     z-index: 10;
-    position: absolute;
+    position: fixed;
     background-color: #fff;
     border: 0;
     color: #35495E;
@@ -30,6 +33,10 @@ body {
     width: 100%;
     button#show-menu:focus {
       outline: 0;}
+  }
+
+  .content {
+    padding: 20px 30px;
   }
 
   .menu-wrapper {
@@ -49,14 +56,17 @@ body {
     .menu-body {
       margin: 20px 0;
       text-align: center;}
-    .exit {
-      text-align: right;}
-    .title {
-      font-size: 28px;
-      color: #fff;
-      text-align: right;
-      margin-right: 30px;
-      margin-top: 27px;}
+    .size-img{
+      width: 50px;}
+  }
+
+  .lists-sprints {
+    background-color: #389E71;
+    color: #fff;
+    border: 1px solid #389E71;
+    hr {
+    margin-top: 15px;
+    margin-bottom: 0;}
   }
 
 }
