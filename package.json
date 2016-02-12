@@ -39,5 +39,9 @@
         "single"
       ]
     }
+  },
+  "dependencies": {
+    "vue": "^1.0.16",
+    "vue-resource": "^0.7.0"
   }
 }
