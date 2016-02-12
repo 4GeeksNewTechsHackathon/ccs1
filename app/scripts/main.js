@@ -16,6 +16,7 @@ var ProjectMilestones = Vue.extend({
         projects: [],
         milestones: []
     },
+    props: ['msg'],
     created : function() {
         this.fetchData()
     },
@@ -50,4 +51,3 @@ new Vue({
     showMenu: false
   }
 })
-
