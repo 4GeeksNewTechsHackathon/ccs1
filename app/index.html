@@ -1,14 +1,12 @@
 <!doctype html>
 <html class="no-js" lang="">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>hackaton_npm</title>
-
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
-
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <!-- endbower -->
@@ -17,48 +15,47 @@
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    
+
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
-  </head>
-  <body>
-    <!--[if lt IE 10]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    
-    <div class="container">
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <div id="app">
-            <ul>
-              <li v-for="milestone in milestones">
-                <span><b>Sprint</b> {{ milestone.name }}</span><br>
-                <span><b>Puntos del Sprint</b> {{ milestone.total_points }}</span>
-                <span><b>Historias del Sprint</b></span>
-                <ul>
-                  <li v-for="story in milestone.user_stories">
-                    <span><b>Nombre</b> {{ story.subject }}</span><br>
-                    <span><b>Puntos</b> {{ story.total_points }}</span><br>
-                    <span><b>Asignado</b> {{ story.owner_extra_info.full_name_display }}</span>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+</head>
+<body>
+<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
-      <div class="footer">
-        <p>♥ from the Yeoman team</p>
-      </div>
+<div class="container">
+    <div class="row marketing">
+        <div class="col-lg-6">
+            <div id="app">
+                <ul>
+                    <li v-for="milestone in milestones">
+                        <span><b>Sprint</b> {{ milestone.name }}</span><br>
+                        <span><b>Total Points</b> {{ milestone.total_points }}</span><br>
+                        <span><b>Closed Points</b> {{ milestone.closed_points }}</span><br>
+                        <span><b>Estimated Start</b> {{ milestone.estimated_start }}</span><br>
+                        <span><b>Estimated Finish</b> {{ milestone.estimated_finish }}</span><br>
+                        <span><b>Closed</b>
+                            <span v-if="milestone.closed">Yes</span>
+                            <span v-else>No</span>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <script src="/bower_components/vue/dist/vue.js"></script>
-    <script src="/bower_components/vue-resource/dist/vue-resource.js"></script>
-    
-    <!-- build:js scripts/main.js -->
-    <script src="scripts/main.js"></script>
-    <!-- endbuild -->
-  </body>
+    <div class="footer">
+        <p>♥ from the Yeoman team</p>
+    </div>
+</div>
+
+<script src="/bower_components/vue/dist/vue.js"></script>
+<script src="/bower_components/vue-resource/dist/vue-resource.js"></script>
+
+<!-- build:js scripts/main.js -->
+<script src="scripts/main.js"></script>
+<!-- endbuild -->
+</body>
 </html>
