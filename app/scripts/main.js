@@ -33,8 +33,8 @@ var ProjectMilestones = Vue.extend({
 });
 
 // MILESTONE-HISTORIES COMPONENT
-var MilestoneHistories = Vue.extend({
-  template: '#milestone-histories-template',
+var MilestoneStories = Vue.extend({
+  template: '#milestone-stories-template',
   props: ['milestone'],
   data: {
     stories: []
@@ -67,7 +67,7 @@ var Modal = Vue.extend({
 
 Vue.config.debug = true;
 Vue.component('project-milestones', ProjectMilestones);
-Vue.component('milestones-histories', MilestoneHistories);
+Vue.component('milestones-stories', MilestoneStories);
 Vue.component('modal', Modal);
 
 new Vue({el: '#app',

@@ -42,8 +42,8 @@
     </ul>
 </script>
 
-<!-- TEMPLATE HISTORIES -->
-<script type="text/x-template" id="milestone-histories-template">
+<!-- TEMPLATE stories -->
+<script type="text/x-template" id="milestone-stories-template">
     <ul class="list-group">
         <li v-for="story in stories" class="list-group-item">
             <span><b>Subject</b> {{ story.subject }}</span>
@@ -88,7 +88,7 @@
                     <project-milestones></project-milestones>
                 </div>
                 <div class="col-md-4">
-                    <milestones-histories v-bind:milestone="milestone"></milestones-histories>
+                    <milestones-stories v-bind:milestone="milestone"></milestones-stories>
                 </div>
             </div>
         </div>
