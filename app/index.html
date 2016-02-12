@@ -25,23 +25,29 @@
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
+<!-- TEMPLATE MILESTONES -->
+<script type="text/x-template" id="project-milestones-template">
+    <ul class="list-group">
+        <li v-for="milestone in milestones" class="list-group-item">
+            <span><b>Sprint</b> {{ milestone.name }}</span><br>
+            <span><b>Total Points</b> {{ milestone.total_points }}</span><br>
+            <span><b>Closed Points</b> {{ milestone.closed_points }}</span><br>
+            <span><b>Estimated Start</b> {{ milestone.estimated_start }}</span><br>
+            <span><b>Estimated Finish</b> {{ milestone.estimated_finish }}</span><br>
+            <span><b>Closed</b>
+                <span v-if="milestone.closed">Yes</span>
+                <span v-else>No</span>
+            </span>
+        </li>
+    </ul>
+</script>
+
+
 <div class="container">
     <div class="row marketing">
         <div class="col-lg-6">
             <div id="app">
-                <ul>
-                    <li v-for="milestone in milestones">
-                        <span><b>Sprint</b> {{ milestone.name }}</span><br>
-                        <span><b>Total Points</b> {{ milestone.total_points }}</span><br>
-                        <span><b>Closed Points</b> {{ milestone.closed_points }}</span><br>
-                        <span><b>Estimated Start</b> {{ milestone.estimated_start }}</span><br>
-                        <span><b>Estimated Finish</b> {{ milestone.estimated_finish }}</span><br>
-                        <span><b>Closed</b>
-                            <span v-if="milestone.closed">Yes</span>
-                            <span v-else>No</span>
-                        </span>
-                    </li>
-                </ul>
+                <project-milestones></project-milestones>
             </div>
         </div>
     </div>
