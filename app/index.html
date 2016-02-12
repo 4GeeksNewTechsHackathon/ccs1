@@ -34,59 +34,55 @@
             <span><b>Closed Points</b> {{ milestone.closed_points }}</span><br>
             <span><b>Estimated Start</b> {{ milestone.estimated_start }}</span><br>
             <span><b>Estimated Finish</b> {{ milestone.estimated_finish }}</span><br>
-            <span><b>Closed</b>
-                <span v-if="milestone.closed">Yes</span>
-                <span v-else>No</span>
-            </span>
+<span><b>Closed</b>
+<span v-if="milestone.closed">Yes</span>
+<span v-else>No</span>
+</span>
         </li>
     </ul>
 </script>
 
 <script type="x/template" id="menu-template">
-  <div v-show="show" transition="menu">
-    <div class="menu-wrapper">
-      <div class="menu-container">
-
-        <div class="menu-body">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4">
-                <img src="images/list.svg" @click="show = false"><br>
-                Sprits
-              </div>
-              <div class="col-md-4">
-                <img src="images/multiple.svg" @click="show = false"><br>
-                Users
-              </div>
-              <div class="col-md-4">
-                <img src="images/error.svg" @click="show = false"><br>
-                Bugs
-              </div>
+    <div v-show="show" transition="menu">
+        <div class="menu-wrapper">
+            <div class="menu-container">
+                <div class="menu-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <object data="images/list.svg" type="image/svg+xml"></object>
+                                Sprits
+                            </div>
+                            <div class="col-md-4">
+                                <object data="images/multiple.svg" type="image/svg+xml"></object>
+                                Users
+                            </div>
+                            <div class="col-md-4">
+                                <object data="images/error.svg" type="image/svg+xml"></object>
+                                Bugs
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-
-      </div>
     </div>
-  </div>
 </script>
 
-<div class="container">
+<div class="container" id="app">
     <div class="row marketing">
         <div class="col-md-4">
-            <div id="app">
+            <div>
                 <project-milestones></project-milestones>
             </div>
         </div>
     </div>
+    <div id="menu">
+        <img src="">
+        <button id="show-menu" @click="showMenu= true" @click="show = false">Menu</button>
+        <modal :show.sync="showMenu"></modal>
+    </div>
 </div>
-<div id="menu">
-  <img src="">
-  <button id="show-menu" @click="showMenu= true" @click="show = false">Menu</button>
-  <modal :show.sync="showMenu">
-  </modal>
-</div>
-
 <script src="/bower_components/vue/dist/vue.js"></script>
 <script src="/bower_components/vue-resource/dist/vue-resource.js"></script>
 
